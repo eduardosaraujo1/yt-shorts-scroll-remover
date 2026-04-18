@@ -1,19 +1,48 @@
-### How to use
+# How to Use
 
-1. Download the UserScript runner [ViolentMonkey](https://violentmonkey.github.io/)
-   - You can also try [TamperMonkey](https://www.tampermonkey.net), though that has not been tested
-2. Open the file [main.user.js](https://raw.githubusercontent.com/eduardosaraujo1/yt-shorts-scroll-remover/refs/heads/main/main.user.js) in raw mode
-3. If ViolentMonkey is installed properly, you should be able to see the Install button [as shown here](./docs/expected-install-screen.jpg).
-4. If the step above doesn't work:
-   - Select the entire script (Ctrl+A or Cmd+A) and copy it (Ctrl+C or Cmd+C)
-   - Click on the ViolentMonkey extention and look for the **Create a new script** button as shown [here](./docs/violentmonkey-newscript.png)
-   - Paste the previously copied content in the text window (Ctrl+A then Ctrl+V or Cmd+A then Cmd+V)
-   - Save the script contents (Ctrl+S or Cmd+S)
+1. Install a UserScript manager:
+   - Recommended: [ViolentMonkey](https://violentmonkey.github.io/)
+   - Alternative: [TamperMonkey](https://www.tampermonkey.net) *(not tested)*
 
-### Expected behavior
+2. Open the script file in raw mode:  
+   [main.user.js](https://raw.githubusercontent.com/eduardosaraujo1/yt-shorts-scroll-remover/refs/heads/main/main.user.js)
 
-Opening a Youtube Short should display the video as usual, but you should not be able to scroll down to see the next suggested video.
+3. If your UserScript manager is installed correctly, an **Install** button should appear (see Figure 1). Click it to install the script.
 
 ---
 
-If you encounter any bugs, please open a [GitHub Issue](https://github.com/eduardosaraujo1/yt-shorts-scroll-remover/issues/new/choose), preferably including your current device, browser and all logs from the Javascript Console.
+## Manual Installation (if auto-install doesn’t work)
+
+1. Select the entire script (`Ctrl+A` / `Cmd+A`) and copy it (`Ctrl+C` / `Cmd+C`)
+2. Click the ViolentMonkey extension icon
+3. Select **Create a new script** (see Figure 2)
+4. Paste the script into the editor (`Ctrl+V` / `Cmd+V`)
+5. Save (`Ctrl+S` / `Cmd+S`)
+
+---
+
+### Figure 1
+![Expected install screen](./docs/expected-install-screen.jpg)
+
+### Figure 2
+![Create new script](./docs/violentmonkey-newscript.png)
+
+---
+
+# Expected Behavior
+
+When opening a YouTube Short:
+- The current video plays normally
+- Scrolling to the next suggested videos is disabled
+
+---
+
+# Troubleshooting & Feedback
+
+If you encounter issues, please open a  
+[GitHub Issue](https://github.com/eduardosaraujo1/yt-shorts-scroll-remover/issues/new/choose)
+
+Include:
+- Device (desktop/mobile)
+- Browser and version
+- Console logs (if possible)
