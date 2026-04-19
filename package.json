@@ -1,0 +1,28 @@
+{
+  "name": "yt-shorts-scroll-remover",
+  "version": "1.0.0",
+  "description": "TamperMonkey/ViolentMonkey UserScript to remove scrolling on Youtube Shorts for Desktop.",
+  "homepage": "https://github.com/eduardosaraujo1/yt-shorts-scroll-remover#readme",
+  "bugs": {
+    "url": "https://github.com/eduardosaraujo1/yt-shorts-scroll-remover/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardosaraujo1/yt-shorts-scroll-remover.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "main.user.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0"
+  }
+}
