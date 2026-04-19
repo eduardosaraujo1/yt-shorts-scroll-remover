@@ -10,13 +10,13 @@
 // ==/UserScript==
 
 (function () {
-  'use strict';
+  "use strict";
 
-  const REEL_NAV_SELECTOR = '.navigation-container';
-  const REEL_VIDEO_SELECTOR = '.reel-video-in-sequence-new';
+  const REEL_NAV_SELECTOR = ".navigation-container";
+  const REEL_VIDEO_SELECTOR = ".reel-video-in-sequence-new";
 
   function isNumeric(str) {
-    return typeof str === 'string' && !isNaN(str) && !isNaN(parseFloat(str));
+    return typeof str === "string" && !isNaN(str) && !isNaN(parseFloat(str));
   }
 
   // ====================
@@ -26,8 +26,7 @@
     constructor(root) {
       if (!root || root.nodeType !== Node.ELEMENT_NODE) {
         throw new Error(
-          "[YoutubeReelRemover] Expected root to be HTMLElement, got " +
-          (root === null ? "null" : typeof root)
+          "[YoutubeReelRemover] Expected root to be HTMLElement, got " + (root === null ? "null" : typeof root),
         );
       }
       this.root = root;
@@ -39,13 +38,13 @@
       reels = this.root.querySelectorAll(REEL_VIDEO_SELECTOR);
       if (reels.length < 2) {
         return;
-      };
+      }
 
       reels.forEach((reel, index) => {
         if (index > 0) {
           reel.remove();
         }
-      })
+      });
     }
 
     #removeReelNavigator() {
@@ -75,17 +74,25 @@
     const observer = new MutationObserver((_, obs) => {
       if (contentLoaded()) {
         obs.disconnect();
-        callback()
+        callback();
       }
     });
 
     observer.observe(document.body, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
   }
 
   function main() {
+    /*
+       REFACTOR PLAN
+       On load (and navigate):
+       - Check if current page is '/shorts/*'
+       - If yes, wait until the reels root is available (awaitReelsRoot)
+         - on timeout(10s): log error
+       - Run remover once on reels root
+       */
     waitWebsiteReady(() => {
       const root = document.querySelector(REEL_VIDEO_SELECTOR).parentNode;
       const remover = new YoutubeReelRemover(root);
@@ -95,7 +102,7 @@
 
       observer.observe(root, {
         childList: true,
-        subtree: true
+        subtree: true,
       });
 
       remover.run();
@@ -104,3 +111,7 @@
 
   main();
 })();
+
+// After the refactor, YoutubeReelRemover no longer runs when the reels root updates its descedent list.
+// if Youtube eventually replaces those elements, create a fix by adding a MutationObserver to the root and
+// removing the observer onNavigate.
